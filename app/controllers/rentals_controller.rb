@@ -34,6 +34,11 @@ class RentalsController < ApplicationController
     end
   end
 
+  def destroy
+    @rental.destroy
+    redirect_to rentals_path, notice: "物件を削除しました！"
+  end
+
   private
   def set_product
     @rental = Rental.find(params[:id])
