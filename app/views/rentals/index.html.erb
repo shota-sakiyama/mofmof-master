@@ -11,9 +11,9 @@
   <% @rentals.each do |rental| %>
     <tr>
       <td><%= rental.name %></td>
-      <td><%= rental.rent %></td>
+      <td><%= rental.rent %>円</td>
       <td><%= rental.address %></td>
-      <td><%= rental.age %></td>
+      <td><%= rental.age %>年</td>
       <td><%= rental.note %></td>
       <td><%= link_to '詳細', rental_path(rental.id) %></td>
       <td><%= link_to '編集', edit_rental_path(rental.id) ,data: { confirm: '本当に編集していいですか？' } %></td>
