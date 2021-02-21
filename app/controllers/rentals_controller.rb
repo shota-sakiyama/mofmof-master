@@ -20,6 +20,7 @@ class RentalsController < ApplicationController
   end
 
   def edit
+    @rental.stations.build
   end
 
   def show
