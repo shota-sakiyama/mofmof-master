@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_rental, only: [:show, :edit, :update, :destroy]
 
   def index
     @rentals = Rental.all
@@ -40,7 +40,7 @@ class RentalsController < ApplicationController
   end
 
   private
-  def set_product
+  def set_rental
     @rental = Rental.find(params[:id])
   end
 
