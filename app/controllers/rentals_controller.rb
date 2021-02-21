@@ -5,6 +5,7 @@ class RentalsController < ApplicationController
 
   def new
     @rental = Rental.new
+    @rental.stations.build
   end
 
   def create
