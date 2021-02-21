@@ -11,7 +11,7 @@ class RentalsController < ApplicationController
   end
 
   def create
-    @rental = Rental.new(rentals_params)
+    @rental = Rental.new(rental_params)
     if @rental.save
       redirect_to rentals_path, notice: "物件を登録しました！"
     else
@@ -26,12 +26,20 @@ class RentalsController < ApplicationController
     @stations = @rental.stations
   end
 
+  def update
+    if @rental.update(rental_params)
+      redirect_to rentals_path, notice: "物件を編集しました！"
+    else
+      render :edit
+    end
+  end
+
   private
   def set_product
     @rental = Rental.find(params[:id])
   end
 
-  def rentals_params
+  def rental_params
     params.require(:rental).permit(
       :name,
       :rent,
